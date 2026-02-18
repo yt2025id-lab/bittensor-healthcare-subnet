@@ -1,4 +1,4 @@
-# Project 2: Decentralized AI Healthcare
+# Decentralized AI Healthcare
 
 ## Overview
 A privacy-preserving, decentralized AI healthcare assistant using Bittensor subnets. Patients and providers interact with AI for diagnosis, triage, and health insights, with data privacy and auditability.
