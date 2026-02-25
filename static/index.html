@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized AI Healthcare Subnet — Bittensor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="nav-logo">
+                <img src="/static/logo.png" alt="Decentralized AI Healthcare Subnet" class="logo-img"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-fallback" style="display:none;">
+                    <svg viewBox="0 0 48 48" width="40" height="40">
+                        <path d="M24 4 L8 16 L8 36 L24 44 L40 36 L40 16 Z" fill="none" stroke="#0891B2" stroke-width="2"/>
+                        <path d="M24 18 L24 30 M20 24 L28 24" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="24" cy="24" r="10" fill="none" stroke="#0891B2" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-title">
+                <h1>Decentralized AI <strong>Healthcare</strong></h1>
+                <p>Clinical Intelligence Subnet — Powered by Bittensor & Yuma Consensus</p>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="subnet-badge">
+                <span class="live-dot"></span>
+                SUBNET #2 &bull; LIVE
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <div class="content-grid">
+
+            <!-- ===== LEFT PANEL: Demo Selector ===== -->
+            <div class="panel panel-input">
+                <div class="panel-header">
+                    <span class="panel-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </span>
+                    <h2>Subnet Demo Scripts</h2>
+                </div>
+
+                <!-- Demo Script 1 -->
+                <button class="demo-card active" id="btnDemo1" onclick="runDemo('demo1')">
+                    <div class="demo-card-top">
+                        <span class="demo-num">01</span>
+                        <span class="demo-task-badge">Symptom Diagnosis</span>
+                    </div>
+                    <div class="demo-card-title">Chest Pain & Shortness of Breath</div>
+                    <div class="demo-card-desc">58yo male with HTN + diabetes presenting with acute chest pain. Emergency triage with 6 competing AI models.</div>
+                    <div class="demo-card-tags">
+                        <span class="demo-tag">NSTEMI</span>
+                        <span class="demo-tag">Troponin+</span>
+                        <span class="demo-tag">Emergent</span>
+                    </div>
+                </button>
+
+                <!-- Demo Script 2 -->
+                <button class="demo-card" id="btnDemo2" onclick="runDemo('demo2')">
+                    <div class="demo-card-top">
+                        <span class="demo-num">02</span>
+                        <span class="demo-task-badge task-imaging">Medical Imaging</span>
+                    </div>
+                    <div class="demo-card-title">Chest X-Ray — Pneumonia Detection</div>
+                    <div class="demo-card-desc">45yo female with cough, fever, pleuritic chest pain. AI models classify CXR findings and localize pathology.</div>
+                    <div class="demo-card-tags">
+                        <span class="demo-tag">CXR</span>
+                        <span class="demo-tag">RLL Opacity</span>
+                        <span class="demo-tag">CAP</span>
+                    </div>
+                </button>
+
+                <!-- Demo Script 3 -->
+                <button class="demo-card" id="btnDemo3" onclick="runDemo('demo3')">
+                    <div class="demo-card-top">
+                        <span class="demo-num">03</span>
+                        <span class="demo-task-badge task-risk">Risk Scoring</span>
+                    </div>
+                    <div class="demo-card-title">Cardiovascular — 30-Day Readmission Risk</div>
+                    <div class="demo-card-desc">68yo male with CHF, CKD, diabetes. AI models predict readmission probability and identify risk factors.</div>
+                    <div class="demo-card-tags">
+                        <span class="demo-tag">CHF</span>
+                        <span class="demo-tag">Readmission</span>
+                        <span class="demo-tag">LACE</span>
+                    </div>
+                </button>
+
+                <div class="api-links">
+                    <a href="/docs" class="api-link">Swagger API</a>
+                    <a href="/redoc" class="api-link">ReDoc</a>
+                </div>
+            </div>
+
+            <!-- ===== RIGHT PANEL: Result ===== -->
+            <div class="panel panel-result">
+
+                <!-- Empty State -->
+                <div class="state-empty" id="stateEmpty">
+                    <div class="empty-icon">
+                        <svg viewBox="0 0 80 80" width="64" height="64">
+                            <path d="M40 8 L16 22 L16 50 L40 64 L64 50 L64 22 Z" fill="none" stroke="#164e63" stroke-width="2"/>
+                            <path d="M40 30 L40 45 M35 37.5 L45 37.5" stroke="#155e75" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="40" cy="37.5" r="12" fill="none" stroke="#164e63" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <p class="empty-text">Select a demo script to broadcast a clinical challenge to all miners on the subnet.</p>
+                    <p class="empty-text">Miners will compete to provide the most accurate diagnoses and predictions.</p>
+                    <p class="empty-text">Validators will verify every prediction against clinical ground truth data.</p>
+                </div>
+
+                <!-- Loading State -->
+                <div class="state-loading" id="stateLoading" style="display:none;">
+                    <div class="loader-container">
+                        <div class="loader-icon">
+                            <svg viewBox="0 0 48 48" width="44" height="44" class="spin-slow">
+                                <path d="M24 4 L8 14 L8 34 L24 44 L40 34 L40 14 Z" fill="none" stroke="#0891B2" stroke-width="2"/>
+                                <path d="M24 18 L24 30 M20 24 L28 24" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="loader-text">
+                            <p class="loader-title">Broadcasting to subnet miners...</p>
+                            <div class="loader-steps" id="loaderSteps">
+                                <div class="loader-step active">
+                                    <span class="step-indicator"></span>
+                                    <span>Querying Bittensor healthcare subnet nodes...</span>
+                                </div>
+                                <div class="loader-step">
+                                    <span class="step-indicator"></span>
+                                    <span>Miners running clinical AI models...</span>
+                                </div>
+                                <div class="loader-step">
+                                    <span class="step-indicator"></span>
+                                    <span>Validators scoring diagnostic accuracy...</span>
+                                </div>
+                                <div class="loader-step">
+                                    <span class="step-indicator"></span>
+                                    <span>Reaching consensus &amp; distributing TAO...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loader-bar"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
+                </div>
+
+                <!-- Result State -->
+                <div class="state-result" id="stateResult" style="display:none;"></div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
